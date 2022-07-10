@@ -1,0 +1,25 @@
+{
+  "name": "@types/libertygame",
+  "version": "0.1.0",
+  "description": "리버티게임(libertygame.miraheze.org) 환경 (타입스크립트 타입 등)",
+  "type": "module",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hsl0/libertygame-types.git"
+  },
+  "author": "hsl0",
+  "license": "CC-BY-NC-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/hsl0/libertygame-types/issues"
+  },
+  "homepage": "https://github.com/hsl0/libertygame-types#readme",
+  "main": "index.js",
+  "dependencies": {
+    "@types/mediawiki": "npm:types-mediawiki@^1.2.0"
+  },
+  "devDependencies": {}
+}

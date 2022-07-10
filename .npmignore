@@ -1,0 +1,15 @@
+.vscode/
+
+.eslintrc
+.gitignore
+.npmignore
+
+tsconfig.json
+
+package-lock.json
+
+# ignore the .ts files
+*.ts
+
+# include the .d.ts files
+!*.d.ts
