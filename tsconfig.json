@@ -16,17 +16,9 @@
             "DOM",
             "ES2017"
         ],
-        "types": [
-            "mediawiki"
-        ],
         "composite": true
     },
     "include": [
         "**/*"
-    ],
-    "references": [
-        {
-            "path": "lib/hybridStorage"
-        }
     ]
 }

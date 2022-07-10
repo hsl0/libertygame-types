@@ -1,14 +1,16 @@
-// 리버티게임에서 window 네임스페이스에 지정된 함수들
+// 리버티게임에서 window 네임스페이스에 지정된 함수 및 변수들
 
 // Common.js
 interface NotificationOptions extends Partial<typeof mw.notification.defaults> {
     additionalMessage: string;
 }
+
 interface MWApiHTTPErrorDetails {
     xhr: JQueryXHR;
     textStatus: string;
     exception: string;
 }
+
 declare function notifyApiError(
     msg: string,
     option: NotificationOptions | null,
@@ -20,7 +22,8 @@ declare function geturlSearch(location?: URL | Location): {
     [key: string]: string;
 };
 
-// gadget-Tasker
+// Gadget-Tasker
+/// Gadget-Tasker.js
 declare function registerRenderer(renderer: unknown): void;
 declare function registerRenderer(...renderers: Array<unknown>): void;
 
