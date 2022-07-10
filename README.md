@@ -2,6 +2,8 @@
 
 [리버티게임](https://libertygame.miraheze.org)에서 사용하는 스크립트를 타입스크립트로도 개발할 수 있도록 전역 함수 및 변수나 소도구의 타입 정의를 배포합니다.
 
+**아직 모든 함수나 변수의 타입이 정의된 것은 아닙니다.** 타입이 필요할 때마다 그때그때 정의하고 있으며, 필요한 타입이 없으시다면 [이슈](https://github.com/hsl0/libertygame-types/issues)를 작성하시거나, 직접 정의 코드를 작성해서 [PR](https://github.com/hsl0/libertygame-types/pulls)을 요청하시기 바랍니다.
+
 ## 프로젝트에 타입 불러오기
 이 패키지는 npm을 활용해서 간단하게 불러올 수 있습니다.
 ```console
