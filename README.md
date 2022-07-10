@@ -36,8 +36,8 @@ npm i hsl0/libertygame-types --save-dev
 
 자세한 사항은 [타입스크립트 공식 홈페이지](https://www.typescriptlang.org)를 참고해 주세요.
 
-## 소도구 타입 정의
-각 모듈 또는 `mw.loader.using()`의 콜백 함수의 `require()`나 `mw.loader.require()`를 통해 불러올 수 있는 것들은 [`gadgets.d.ts`](gadgets.d.ts)에서 정의됩니다.
+## 모듈 타입 정의
+각 모듈 또는 `mw.loader.using()`의 콜백 함수의 `require()`나 `mw.loader.require()`를 통해 불러올 수 있는 것들은 [`modules.d.ts`](modules.d.ts)에서 정의됩니다.
 
 각 모듈은 `declare module` 문에서 선언됩니다.
 ```ts
@@ -60,4 +60,4 @@ declare module 'ext.gadget.CGI2-parser' {
 
 자세한 사항은 [타입스크립트 공식 홈페이지](https://www.typescriptlang.org)를 참고해 주세요.
 
-소도구 모듈에서 정의되지만, `module.exports`가 아닌 `windows`로 내보내지는 전역 함수 및 변수는 [`global.d.ts`](global.d.ts)에서 정의되므로 [전역 함수 및 변수 타입 정의](#전역-함수-및-변수-타입-정의) 문단을 확인해 주세요.
+모듈에서 정의되지만, `module.exports`가 아닌 `windows`로 내보내지는 전역 함수 및 변수는 [`global.d.ts`](global.d.ts)에서 정의되므로 [전역 함수 및 변수 타입 정의](#전역-함수-및-변수-타입-정의) 문단을 확인해 주세요.
