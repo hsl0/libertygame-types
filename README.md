@@ -32,7 +32,7 @@ npm i hsl0/libertygame-types --save-dev
 ...
 ```
 
-직접 접근할 수 있는 함수 및 변수에만 declare를 붙여주시고, declare가 붙은 함수 및 변수에서 사용하는 타입만 작성하시면 됩니다.
+직접 접근할 수 있는 함수 및 변수에만 `declare`를 붙여주시고, `declare`가 붙은 함수 및 변수에서 사용하는 타입만 작성하시면 됩니다.
 
 자세한 사항은 [타입스크립트 공식 홈페이지](https://www.typescriptlang.org)를 참고해 주세요.
 
