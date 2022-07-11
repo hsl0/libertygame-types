@@ -1,2 +1,4 @@
-/// <reference path="modules.d.ts" />
-/// <reference path="global.d.ts" />
+import 'mediawiki';
+
+import './modules';
+import './global.d.ts';
