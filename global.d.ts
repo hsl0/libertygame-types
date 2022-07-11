@@ -1,3 +1,5 @@
+/// <reference types="mediawiki" />
+
 // 리버티게임에서 window 네임스페이스에 지정된 함수 및 변수들
 
 // Common.js
