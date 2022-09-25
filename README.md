@@ -32,7 +32,7 @@ npm i hsl0/libertygame-types --save-dev
 ...
 ```
 
-직접 접근할 수 있는 함수 및 변수에만 `declare`를 붙여주시고, `declare`가 붙은 함수 및 변수에서 사용하는 타입만 작성하시면 됩니다.
+직접 접근할 수 있는 함수 및 변수에만 `declare global` 안에 입력해 주시고, 해당 함수 및 변수에서 사용하는 타입만 작성하시면 됩니다.
 
 자세한 사항은 [타입스크립트 공식 홈페이지](https://www.typescriptlang.org)를 참고해 주세요.
 
@@ -60,4 +60,4 @@ declare module 'ext.gadget.CGI2-parser' {
 
 자세한 사항은 [타입스크립트 공식 홈페이지](https://www.typescriptlang.org)를 참고해 주세요.
 
-모듈에서 정의되지만, `module.exports`가 아닌 `windows`로 내보내지는 전역 함수 및 변수는 [`global.d.ts`](global.d.ts)에서 정의되므로 [전역 함수 및 변수 타입 정의](#전역-함수-및-변수-타입-정의) 문단을 확인해 주세요.
+모듈에서 정의되지만, `module.exports`가 아닌 `window`로 내보내지는 전역 함수 및 변수는 [`global.d.ts`](global.d.ts)에서 정의되므로 [전역 함수 및 변수 타입 정의](#전역-함수-및-변수-타입-정의) 문단을 확인해 주세요.
