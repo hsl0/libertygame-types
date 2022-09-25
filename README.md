@@ -10,7 +10,7 @@
 npm i hsl0/libertygame-types --save-dev
 ```
 
-이 패키지에는 [미디어위키 타입](https://www.npmjs.com/package/types-mediawiki)과 [jQuery 타입](https://www.npmjs.com/package/@types/jquery)도 포함되어있으므로 별도의 패키지를 설치할 필요가 없습니다.
+이 패키지에는 [미디어위키 타입](https://www.npmjs.com/package/types-mediawiki)과 [jQuery 타입](https://www.npmjs.com/package/@types/jquery)도 포함되어 있으므로 별도의 패키지를 설치할 필요가 없습니다.
 
 타입스크립트 개발 환경이 잘 구축되었다면 별도의 작업은 필요하지 않을겁니다.
 
