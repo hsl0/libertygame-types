@@ -1,4 +1,4 @@
-/// <reference types="mediawiki" />
+import 'mediawiki';
 
 // require로 불러올 수 있는 모듈들 (소도구 등)
 
