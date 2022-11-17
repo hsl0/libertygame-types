@@ -3,7 +3,7 @@
 declare global {
     // Common.js
     interface NotificationOptions extends Partial<typeof mw.notification.defaults> {
-        additionalMessage: string;
+        additionalMessage?: string;
     }
 
     interface MWApiHTTPErrorDetails {
