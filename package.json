@@ -1,5 +1,5 @@
 {
-  "name": "libertygame-types",
+  "name": "@types/libertygame",
   "version": "0.2.0-alpha.0+230218.1",
   "description": "리버티게임(libertygame.miraheze.org) 스크립트 타입 정의",
   "type": "module",
