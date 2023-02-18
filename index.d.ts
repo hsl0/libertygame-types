@@ -1,3 +1,3 @@
-/// <reference types="mediawiki" />
+/// <reference types="types-mediawiki" />
 /// <reference path="global.d.ts" />
 /// <reference path="modules.d.ts" />
