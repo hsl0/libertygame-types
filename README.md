@@ -48,6 +48,7 @@ declare module 'ext.gadget.CGI2-parser' {
     ...
 }
 ```
+위의 선언 구문은 `mw.loader.using('ext.gadget.CGI2-parser')`나 `require('ext.gadget.CGI2-parser')`로 불러오는 `ext.gadget.CGI2-parser` 모듈의 예시입니다.
 
 보시다시피, 모듈을 선언할 때는 `require()`의 인자로 들어가는 모듈 이름을 `declare module` 바로 뒤에 문자열로 입력해야합니다.
 
