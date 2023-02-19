@@ -15,6 +15,15 @@ npm i hsl0/libertygame-types --save-dev
 `tsconfig.json`에서 `moduleResolution`을 `Node` 계열로 설정해야 합니다. 만약 `module`이 `CommonJS`나 `Node` 계열로 설정되어있다면 생략하셔도 좋습니다.
   
 ## 구조 및 편집 안내
+`MediaWiki` 디렉토리는 리버티게임의 `미디어위키:` 이름공간과 같습니다. 미디어위키 이름공간에 속한 문서들의 타입 정의가 해당 폴더에 저장됩니다.
+
+해당 폴더에 파일을 만들더라도 자동으로 패키지에 포함되지는 않습니다. 반드시 루트 디렉토리의 `index.d.ts`에 아래와 같이 새 파일을 추가해 주세요.
+```ts
+/// <reference path="MediaWiki/NewFile.d.ts" />
+```
+
+단, `Gadget-`으로 시작하는 소도구 문서는 예외입니다. 소도구 문서에 대한 타입은 소도구를 `미디어위키:Gadgets-definition`에 등록하듯이 `MediaWiki/Gadgets-definition.d.ts`에 등록합니다.
+
 구조는 얼마든지 바뀔 수 있다는 점 명심하세요.
 
 ### 전역 함수 및 변수 타입 정의

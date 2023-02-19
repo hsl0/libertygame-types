@@ -15,8 +15,7 @@
         "lib": [
             "DOM",
             "ES2017"
-        ],
-        "composite": true
+        ]
     },
     "include": [
         "**/*"
