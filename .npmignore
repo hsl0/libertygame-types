@@ -1,6 +1,9 @@
 .vscode/
 
-.eslintrc
+.eslintrc.*
+.prettierrc
+.markdownlintrc.*
+.markdownlintignore
 .gitignore
 .npmignore
 
