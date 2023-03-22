@@ -15,7 +15,7 @@ npm i hsl0/libertygame-types --save-dev
 이 패키지에는 [미디어위키 타입](https://www.npmjs.com/package/types-mediawiki)과 [jQuery 타입](https://www.npmjs.com/package/@types/jquery)도 포함되어 있으므로 별도의 패키지를 설치할 필요가 없습니다.
 
 [`tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)에서 [`moduleResolution`](https://www.typescriptlang.org/tsconfig#moduleResolution)을 `Node` 계열로 설정해야 합니다. 만약 [`module`](https://www.typescriptlang.org/tsconfig#module)이 `CommonJS`나 `Node` 계열로 설정되어있다면 생략하셔도 좋습니다.
-  
+
 ## 구조 및 편집 안내
 
 구조는 얼마든지 바뀔 수 있다는 점 명심하세요.

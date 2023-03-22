@@ -2,7 +2,8 @@
 
 declare global {
     // Common.js
-    interface NotificationOptions extends Partial<typeof mw.notification.defaults> {
+    interface NotificationOptions
+        extends Partial<typeof mw.notification.defaults> {
         additionalMessage?: string;
     }
 
