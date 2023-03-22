@@ -1,34 +1,34 @@
 {
-    "name": "libertygame-types",
-    "version": "0.3.0-alpha.0+230322.1",
-    "description": "리버티게임(libertygame.miraheze.org) 스크립트 타입 정의",
-    "type": "module",
-    "types": "index.d.ts",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "clean": "eslint . --fix && prettier -w . & markdownlint -f **/*.md",
-        "check": "eslint . & tsc & markdownlint **/*.md"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/hsl0/libertygame-types.git"
-    },
-    "author": "hsl0",
-    "license": "CC-BY-NC-SA-4.0",
-    "bugs": {
-        "url": "https://github.com/hsl0/libertygame-types/issues"
-    },
-    "homepage": "https://github.com/hsl0/libertygame-types#readme",
-    "main": "index.js",
-    "dependencies": {
-        "types-mediawiki": "^1.3.0"
-    },
-    "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^5.56.0",
-        "@typescript-eslint/parser": "^5.56.0",
-        "eslint": "^8.36.0",
-        "markdownlint": "^0.27.0",
-        "prettier": "^2.8.6",
-        "typescript": "^4.9.5"
-    }
+  "name": "@types/libertygame",
+  "version": "0.3.0-alpha.0+230322.1",
+  "description": "리버티게임(libertygame.miraheze.org) 스크립트 타입 정의",
+  "type": "module",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "eslint . --fix && prettier -w . & markdownlint -f **/*.md",
+    "check": "eslint . & tsc & markdownlint **/*.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hsl0/libertygame-types.git"
+  },
+  "author": "hsl0",
+  "license": "CC-BY-NC-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/hsl0/libertygame-types/issues"
+  },
+  "homepage": "https://github.com/hsl0/libertygame-types#readme",
+  "main": "index.js",
+  "dependencies": {
+    "types-mediawiki": "^1.3.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
+    "eslint": "^8.36.0",
+    "markdownlint": "^0.27.0",
+    "prettier": "^2.8.6",
+    "typescript": "^4.9.5"
+  }
 }
