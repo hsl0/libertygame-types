@@ -65,3 +65,11 @@ declare module 'ext.gadget.CGI2-parser' {
 자세한 사항은 [타입스크립트 공식 홈페이지](https://www.typescriptlang.org)를 참고해 주세요.
 
 모듈에서 정의되지만, `module.exports`가 아닌 `window`로 내보내지는 전역 함수 및 변수는 [`global.d.ts`](global.d.ts)에서 정의되므로 [전역 함수 및 변수 타입 정의](#전역-함수-및-변수-타입-정의) 문단을 확인해 주세요.
+
+## 도보시오
+이 패키지에는 별도의 패키지가 없는 리버티게임의 전역 함수나 변수 및 소도구만 포함되어 있으며, jQuery와 미디어위키 코어를 제외한 별도 패키지가 있는 타입 정의는 포함하지 않습니다. 그 대신 별도의 타입 패키지를 직접 설치하실 수 있습니다.
+
+다음은 리버티게임과 미디어위키에서 사용하는 스크립트에 대한 타입 패키지들의 목록입니다.
+
+ - [OOUI](https://www.npmjs.com/package/@types/oojs-ui) (@types/oojs-ui)
+ - [OOjs](https://www.npmjs.com/package/@types/oojs) (@types/oojs)
