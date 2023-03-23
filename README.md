@@ -31,9 +31,7 @@ npm i hsl0/libertygame-types --save-dev
     "compilerOptions": {
         "moduleResoultion": "node"
     },
-    "include": [
-        "node_modules/libertygame-types"
-    ]
+    "include": ["node_modules/libertygame-types"]
 }
 ```
 
