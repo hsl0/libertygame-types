@@ -12,8 +12,13 @@
         "strictNullChecks": true,
         "alwaysStrict": true,
         "module": "CommonJS",
-        "lib": ["DOM", "ES2017"],
+        "lib": [
+            "DOM",
+            "ESNext"
+        ],
         "composite": true
     },
-    "include": ["**/*"]
+    "include": [
+        "**/*"
+    ]
 }
