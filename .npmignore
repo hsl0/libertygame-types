@@ -1,10 +1,16 @@
 .vscode/
 
-.eslintrc
+CONTRIBUTING.*
+
+.eslintrc.*
+.prettierrc
+.markdownlintrc.*
+.markdownlintignore
 .gitignore
 .npmignore
 
 tsconfig.json
+tslint.json
 
 package-lock.json
 

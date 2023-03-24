@@ -1,21 +1,18 @@
 {
     "compilerOptions": {
         "strict": true,
-        "noImplicitAny": true,
         "noImplicitReturns": true,
-        "noImplicitThis": true,
+        "noImplicitOverride": true,
         "newLine": "lf",
         "target": "ES5",
         "forceConsistentCasingInFileNames": true,
         "noEmit": true,
-        "strictFunctionTypes": true,
-        "strictNullChecks": true,
-        "alwaysStrict": true,
         "module": "CommonJS",
         "lib": [
             "DOM",
-            "ES2017"
-        ]
+            "ESNext"
+        ],
+        "composite": true
     },
     "include": [
         "**/*"
