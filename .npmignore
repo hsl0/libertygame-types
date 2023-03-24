@@ -1,5 +1,7 @@
 .vscode/
 
+CONTRIBUTING.*
+
 .eslintrc.*
 .prettierrc
 .markdownlintrc.*
@@ -8,6 +10,7 @@
 .npmignore
 
 tsconfig.json
+tslint.json
 
 package-lock.json
 

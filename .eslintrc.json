@@ -1,8 +1,5 @@
 {
-    "extends": ["eslint:recommended"],
-    "parserOptions": {
-        "project": true
-    },
+    "extends": [],
     "root": true,
     "env": {
         "browser": true,
@@ -11,16 +8,18 @@
     },
     "overrides": [
         {
-            "files": ["*.ts"],
-            "extends": [
-                "plugin:@typescript-eslint/recommended",
-                "plugin:@typescript-eslint/recommended-requiring-type-checking"
+            "files": [
+                "*.d.ts"
             ],
+            "extends": [],
             "parser": "@typescript-eslint/parser",
-            "plugins": ["@typescript-eslint"],
-            "rules": {
-                "@typescript-eslint/triple-slash-reference": "off"
-            }
+            "parserOptions": {
+                "project": true
+            },
+            "plugins": [
+                "@typescript-eslint"
+            ],
+            "rules": {}
         }
     ]
 }

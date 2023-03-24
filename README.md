@@ -14,11 +14,11 @@ npm i hsl0/libertygame-types --save-dev
 
 이 패키지에는 [미디어위키 타입](https://www.npmjs.com/package/types-mediawiki)과 [jQuery 타입](https://www.npmjs.com/package/@types/jquery)도 포함되어 있으므로 별도의 패키지를 설치할 필요가 없습니다.
 
-그리고 [`tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)에서 `extends`에 [`libertygame-types/tsconfig.recommend.json`](tsconfig.recommend.json)을 추가해 주세요. 이는 tsconfig를 미디어위키와 리버티게임의 환경에 맞추고 아래 필수 셋팅을 자동으로 해줍니다.
+그리고 [`tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)에서 `extends`에 [`libertygame-types/recommended.json`](recommended.json)을 추가해 주세요. 이는 tsconfig를 미디어위키와 리버티게임의 환경에 맞추고 아래 필수 셋팅을 자동으로 해줍니다.
 
 ```json
 {
-    "extends": "libertygame-types/tsconfig.recommend.json"
+ "extends": "libertygame-types/recommended.json"
 }
 ```
 
@@ -28,10 +28,10 @@ npm i hsl0/libertygame-types --save-dev
 
 ```json
 {
-    "compilerOptions": {
-        "moduleResoultion": "node"
-    },
-    "include": ["node_modules/libertygame-types"]
+ "compilerOptions": {
+  "moduleResoultion": "node"
+ },
+ "include": ["node_modules/libertygame-types"]
 }
 ```
 
