@@ -4,7 +4,7 @@
 
 **아직 모든 함수나 변수의 타입이 정의된 것은 아닙니다.** 타입이 필요할 때마다 그때그때 정의하고 있으며, 필요한 타입이 없으시다면 [이슈](https://github.com/hsl0/libertygame-types/issues)를 작성하시거나, 직접 정의 코드를 작성해서 [PR](https://github.com/hsl0/libertygame-types/pulls)을 요청하시기 바랍니다.
 
-## 프로젝트에 타입 불러오기
+## 타입 불러오기
 
 이 패키지는 npm을 활용해서 간단하게 불러올 수 있습니다. 아래와 같은 터미널 명령어를 통해 이 패키지를 설치하세요.
 
@@ -43,3 +43,11 @@ npm i hsl0/libertygame-types --save-dev
 
 - [OOUI](https://www.npmjs.com/package/@types/oojs-ui) (@types/oojs-ui)
 - [OOjs](https://www.npmjs.com/package/@types/oojs) (@types/oojs)
+
+## 편집 안내
+
+이 레포지트리를 편집하기 전에 [CONTRIBUTING.md](CONTRIBUTING.md) 문서를 먼저 읽어주세요.
+
+## 라이선스
+
+라이선스는 아직 확정되지 않아 변경될 수 있습니다. 현재 리버티게임의 라이선스인 CC BY-NC-SA 4.0을 임시로 적용하고 있습니다.
