@@ -14,17 +14,20 @@ npm i hsl0/libertygame-types --save-dev
 
 이 패키지에는 [미디어위키 타입](https://www.npmjs.com/package/types-mediawiki)과 [jQuery 타입](https://www.npmjs.com/package/@types/jquery)도 포함되어 있으므로 별도의 패키지를 설치할 필요가 없습니다.
 
-그리고 [`tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)에서 `extends`에 [`libertygame-types/recommended.json`](recommended.json)을 추가해 주세요. 이는 tsconfig를 미디어위키와 리버티게임의 환경에 맞추고 아래 필수 셋팅을 자동으로 해줍니다.
+그 다음, [`tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)에서 [`include`](https://www.typescriptlang.org/tsconfig#include)에 `node_modules/libertygame-types`를 추가해야 합니다.
+
+그리고 `extends`에 [`libertygame-types/recommended.json`](recommended.json)을 추가해 주세요. 이는 tsconfig를 미디어위키와 리버티게임의 환경에 맞추고 아래 필수 셋팅을 자동으로 해줍니다.
 
 ```json
 {
- "extends": "libertygame-types/recommended.json"
+ "extends": "libertygame-types/recommended.json",
+ "include": [
+   "node_modules/libertygame-types"
+ ]
 }
 ```
 
-만약 tsconfig를 수동으로 설정하려면 먼저 [`include`](https://www.typescriptlang.org/tsconfig#include)에 `node_modules/libertygame-types`를 추가해야 합니다.
-
-그리고 `compilerOptions`의 [`moduleResolution`](https://www.typescriptlang.org/tsconfig#moduleResolution) 옵션을 `Node` 계열로 설정해야 합니다. 만약 [`module`](https://www.typescriptlang.org/tsconfig#module)이 `CommonJS`나 `Node` 계열로 설정되어있다면 생략하셔도 좋습니다.
+recommended.json을 사용하는 대신 tsconfig를 수동으로 설정할 경우, 적어도 `compilerOptions`의 [`moduleResolution`](https://www.typescriptlang.org/tsconfig#moduleResolution) 옵션은 `Node` 계열로 설정해야 합니다. 만약 [`module`](https://www.typescriptlang.org/tsconfig#module)이 `CommonJS`나 `Node` 계열로 설정되어있다면 생략하셔도 좋습니다.
 
 ```json
 {
