@@ -1,12 +1,12 @@
 {
-	"name": "@types/libertygame",
-	"version": "0.3.0-alpha.0+230322.1",
+	"name": "libertygame-types",
+	"version": "0.4.0",
 	"description": "리버티게임(libertygame.miraheze.org) 스크립트 타입 정의",
 	"type": "module",
 	"types": "index.d.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"clean": "npm run dtslint && npm run prettier-write & npm run markdownlint-fix",
+		"clean": "npm run prettier-write && npm run dtslint & npm run markdownlint-fix",
 		"format": "npm run prettier-write & npm run markdownlint-fix",
 		"lint": "npm run dtslint & npm run markdownlint",
 		"prettier-write": "prettier -w .",
