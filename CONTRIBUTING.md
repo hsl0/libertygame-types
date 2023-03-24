@@ -2,58 +2,18 @@
 
 ## 구조
 
+이 패키지의 파일은 리버티게임의 실제 문서와 일대일로 대응됩니다.
+이 패키지의 첫번째 폴더는 이름공간을 의미합니다. 이름공간 폴더 이름은 영어를 사용합니다.
+그리고 그 아래에는 이름공간에 속한 각 문서가 포함되며, 하위 문서는 또 다시 폴더 안으로 들어갑니다.
+모든 타입 정의 파일은 `.d.ts` 확장자를 가지며, `.js`로 끝나는 문서들은 `.js` 부분은 생략되고 `.d.ts`로 대체됩니다.
+예를 들어, `MediaWiki:Foo/bar.js` 문서에 대한 타입 파일의 경우, 이 패키지에서는 `MediaWiki/Foo/bar.d.ts` 경로에 저장합니다.
+
+모든 파일은 [`index.d.ts`](index.d.ts)에 추가되어야 합니다.
+단, `MediaWiki/Gadget-`으로 시작하는 소도구 문서들은 미디어위키에서 소도구를 등록하듯 [`MediaWiki/Gadgets-definition.d.ts`](MediaWiki/Gadgets-definition.d.ts)에 추가합니다.
+`index.d.ts`와 `MediaWiki/Gadgets-definition.d.ts` 파일 안에 파일을 추가할 때는 reference 문법을 사용합니다.
+
+```ts
+/// <reference path="MediaWiki/Common.d.ts" />
+```
+
 구조는 얼마든지 바뀔 수 있다는 점 명심하세요.
-
-### 전역 함수 및 변수 타입 정의
-
-`window` 객체에서 접근할 수 있는 전역 함수 및 변수는 [`global.d.ts`](global.d.ts)에서 정의됩니다.
-
-미디어위키 이름공간의 각 문서들이 이름공간을 뗀 문서 제목의 주석으로 구분되어 있습니다.
-
-```ts
-// Common.js
-...
-```
-
-소도구 등 모듈에 포함된 문서의 경우에는 모듈 이름도 작성하고, 문서 이름은 `///`로 시작하는 주석으로 작성해서 소속된 문서임을 쉽게 알 수 있도록 합니다.
-
-```ts
-// ext.gadget.Tasker
-/// Gadget-tasker.js
-...
-```
-
-직접 접근할 수 있는 함수 및 변수에만 `declare global` 안에 입력해 주시고, 해당 함수 및 변수에서 사용하는 타입만 작성하시면 됩니다.
-
-자세한 사항은 [타입스크립트 공식 홈페이지](https://www.typescriptlang.org)를 참고해 주세요.
-
-### 모듈 타입 정의
-
-각 모듈 또는 `mw.loader.using()`의 콜백 함수의 `require()`나 `mw.loader.require()`를 통해 불러올 수 있는 것들은 [`modules.d.ts`](modules.d.ts)에서 정의됩니다.
-
-각 모듈은 `declare module` 문에서 선언됩니다.
-
-```ts
-declare module 'ext.gadget.CGI2-parser' {
-    ...
-}
-```
-
-위의 선언 구문은 `mw.loader.using('ext.gadget.CGI2-parser')`나 `require('ext.gadget.CGI2-parser')`로 불러오는 `ext.gadget.CGI2-parser` 모듈의 예시입니다.
-
-보시다시피, 모듈을 선언할 때는 `require()`의 인자로 들어가는 모듈 이름을 `declare module` 바로 뒤에 문자열로 입력해야합니다.
-
-각 모듈에서 `module.exports`를 통해 내보내지는 값은 `declare module` 문에서 `export` 변수에 할당된 값에 대응됩니다. 물론, 여기는 선언 파일이므로 타입 선언이 거기에 들어갑니다.
-
-```ts
-declare module 'ext.gadget.CGI2-parser' {
-    ...
-    export = CGI2Parser;
-}
-```
-
-`export` 위에는 거기에 사용되는 타입이나, 그 타입을 정의하기 위해 필요한 타입들이 정의됩니다.
-
-자세한 사항은 [타입스크립트 공식 홈페이지](https://www.typescriptlang.org)를 참고해 주세요.
-
-모듈에서 정의되지만, `module.exports`가 아닌 `window`로 내보내지는 전역 함수 및 변수는 [`global.d.ts`](global.d.ts)에서 정의되므로 [전역 함수 및 변수 타입 정의](#전역-함수-및-변수-타입-정의) 문단을 확인해 주세요.
