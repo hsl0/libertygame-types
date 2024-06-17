@@ -6,11 +6,8 @@
 	"types": "index.d.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"clean": "npm run prettier-write && npm run dtslint & npm run markdownlint-fix",
 		"format": "npm run prettier-write & npm run markdownlint-fix",
-		"lint": "npm run dtslint & npm run markdownlint",
 		"prettier-write": "prettier -w .",
-		"dtslint": "dtslint",
 		"markdownlint": "markdownlint **/*.md",
 		"markdownlint-fix": "npm run markdownlint -- --fix"
 	},
@@ -29,9 +26,8 @@
 		"types-mediawiki": "^1.8.0"
 	},
 	"devDependencies": {
-		"prettier": "^3.3.2",
-		"@definitelytyped/dtslint": "^0.2.20",
 		"markdownlint-cli": "^0.41.0",
+		"prettier": "^3.3.2",
 		"typescript": "^5.4.5"
 	}
 }
