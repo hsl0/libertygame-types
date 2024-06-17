@@ -1,20 +1,15 @@
 {
-    "compilerOptions": {
-        "strict": true,
-        "noImplicitReturns": true,
-        "noImplicitOverride": true,
-        "newLine": "lf",
-        "target": "ES5",
-        "forceConsistentCasingInFileNames": true,
-        "noEmit": true,
-        "module": "CommonJS",
-        "lib": [
-            "DOM",
-            "ESNext"
-        ],
-        "composite": true
-    },
-    "include": [
-        "**/*"
-    ]
+	"compilerOptions": {
+		"strict": true,
+		"noImplicitReturns": true,
+		"noImplicitOverride": true,
+		"newLine": "lf",
+		"target": "ES5",
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"module": "CommonJS",
+		"lib": ["DOM", "ESNext"],
+		"composite": true
+	},
+	"include": ["**/*"]
 }

@@ -20,10 +20,8 @@ npm i hsl0/libertygame-types --save-dev
 
 ```json
 {
- "extends": "libertygame-types/recommended.json",
- "include": [
-   "node_modules/libertygame-types"
- ]
+	"extends": "libertygame-types/recommended.json",
+	"include": ["node_modules/libertygame-types"]
 }
 ```
 
@@ -31,10 +29,10 @@ recommended.json을 사용하는 대신 tsconfig를 수동으로 설정할 경�
 
 ```json
 {
- "compilerOptions": {
-  "moduleResoultion": "node"
- },
- "include": ["node_modules/libertygame-types"]
+	"compilerOptions": {
+		"moduleResoultion": "node"
+	},
+	"include": ["node_modules/libertygame-types"]
 }
 ```
 
