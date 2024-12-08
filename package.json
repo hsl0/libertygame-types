@@ -4,14 +4,15 @@
 	"description": "리버티게임(libertyga.me) 스크립트 타입 정의",
 	"types": "index.d.ts",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "npm run lint",
 		"lint": "npm run tsc-lint && npm run prettier-check && npm run markdownlint",
 		"tsc-lint": "tsc --noEmit",
 		"format": "npm run prettier-write & npm run markdownlint-fix",
 		"prettier-check": "prettier -c .",
 		"prettier-write": "prettier -w .",
 		"markdownlint": "markdownlint **/*.md",
-		"markdownlint-fix": "npm run markdownlint -- --fix"
+		"markdownlint-fix": "npm run markdownlint -- --fix",
+		"prepare": "husky"
 	},
 	"repository": {
 		"type": "git",
@@ -27,6 +28,7 @@
 		"types-mediawiki": "^1.8.0"
 	},
 	"devDependencies": {
+		"husky": "^9.1.7",
 		"markdownlint-cli": "^0.43.0",
 		"prettier": "^3.3.2",
 		"typescript": "^5.4.5"

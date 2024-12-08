@@ -1,0 +1,2 @@
+npm run tsc-lint
+npm run format
