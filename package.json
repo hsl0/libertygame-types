@@ -1,8 +1,7 @@
 {
-	"name": "libertygame-types",
-	"version": "0.4.0",
-	"description": "리버티게임(libertygame.miraheze.org) 스크립트 타입 정의",
-	"type": "module",
+	"name": "@libertygame/types",
+	"version": "0.5.0",
+	"description": "리버티게임(libertyga.me) 스크립트 타입 정의",
 	"types": "index.d.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
@@ -13,20 +12,19 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/hsl0/libertygame-types.git"
+		"url": "git+https://github.com/LibertygameWikiKorea/libertygame-types.git"
 	},
-	"author": "hsl0",
+	"author": "libertygame",
 	"license": "CC-BY-NC-SA-4.0",
 	"bugs": {
-		"url": "https://github.com/hsl0/libertygame-types/issues"
+		"url": "https://github.com/LibertygameWikiKorea/libertygame-types/issues"
 	},
-	"homepage": "https://github.com/hsl0/libertygame-types#readme",
-	"main": "index.js",
+	"homepage": "https://github.com/LibertygameWikiKorea/libertygame-types#readme",
 	"dependencies": {
 		"types-mediawiki": "^1.8.0"
 	},
 	"devDependencies": {
-		"markdownlint-cli": "^0.41.0",
+		"markdownlint-cli": "^0.43.0",
 		"prettier": "^3.3.2",
 		"typescript": "^5.4.5"
 	}

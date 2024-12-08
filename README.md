@@ -2,14 +2,14 @@
 
 [리버티게임](https://libertyga.me)에서 사용하는 스크립트를 타입스크립트로도 개발할 수 있도록 전역 함수 및 변수나 소도구의 타입 정의를 배포합니다.
 
-**아직 모든 함수나 변수의 타입이 정의된 것은 아닙니다.** 타입이 필요할 때마다 그때그때 정의하고 있으며, 필요한 타입이 없으시다면 [이슈](https://github.com/hsl0/libertygame-types/issues)를 작성하시거나, 직접 정의 코드를 작성해서 [PR](https://github.com/hsl0/libertygame-types/pulls)을 요청하시기 바랍니다.
+**아직 모든 함수나 변수의 타입이 정의된 것은 아닙니다.** 타입이 필요할 때마다 그때그때 정의하고 있으며, 필요한 타입이 없으시다면 [이슈](https://github.com/LibertygameWikiKorea/libertygame-types/issues)를 작성하시거나, 직접 정의 코드를 작성해서 [PR](https://github.com/LibertygameWikiKorea/libertygame-types/pulls)을 요청하시기 바랍니다.
 
 ## 타입 불러오기
 
-이 패키지는 npm을 활용해서 간단하게 불러올 수 있습니다. 아래와 같은 터미널 명령어를 통해 이 패키지를 설치하세요.
+이 패키지는 npm을 활용해서 간단하게 불러올 수 있습니다. 다음 터미널 명령어를 통해 이 패키지를 설치하세요.
 
 ```console
-npm i hsl0/libertygame-types --save-dev
+npm i @libertygame/types --save-dev
 ```
 
 이 패키지에는 [미디어위키 타입](https://www.npmjs.com/package/types-mediawiki)과 [jQuery 타입](https://www.npmjs.com/package/@types/jquery)도 포함되어 있으므로 별도의 패키지를 설치할 필요가 없습니다.
@@ -20,8 +20,8 @@ npm i hsl0/libertygame-types --save-dev
 
 ```json
 {
-	"extends": "libertygame-types/recommended.json",
-	"include": ["node_modules/libertygame-types"]
+	"extends": "@libertygame/types/recommended.json",
+	"include": ["node_modules/@libertygame/types"]
 }
 ```
 
@@ -32,7 +32,7 @@ recommended.json을 사용하는 대신 tsconfig를 수동으로 설정할 경�
 	"compilerOptions": {
 		"moduleResoultion": "node"
 	},
-	"include": ["node_modules/libertygame-types"]
+	"include": ["node_modules/@libertygame/types"]
 }
 ```
 

@@ -9,5 +9,5 @@
 		"forceConsistentCasingInFileNames": true,
 		"lib": ["ESNext", "DOM"]
 	},
-	"include": ["node_modules/libertygame-types"]
+	"include": ["node_modules/@libertygame/types"]
 }
