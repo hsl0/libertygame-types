@@ -17,6 +17,7 @@ package-lock.json
 
 # ignore the .ts files
 *.ts
+*.tsbuildinfo
 
 # include the .d.ts files
 !*.d.ts
