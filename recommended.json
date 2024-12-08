@@ -9,5 +9,6 @@
 		"forceConsistentCasingInFileNames": true,
 		"lib": ["ESNext", "DOM"]
 	},
-	"include": ["node_modules/@libertygame/types"]
+	"include": ["."],
+	"files": ["index.d.ts"]
 }
