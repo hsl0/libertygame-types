@@ -14,25 +14,30 @@ npm i @libertygame/types --save-dev
 
 이 패키지에는 [미디어위키 타입](https://www.npmjs.com/package/types-mediawiki)과 [jQuery 타입](https://www.npmjs.com/package/@types/jquery)도 포함되어 있으므로 별도의 패키지를 설치할 필요가 없습니다.
 
-하지만 이 패키지는 `@types/`에 속한 패키지가 아니므로 설치만으로 자동으로 추가되지 않습니다. 따라서 별도로 추가해 주셔야 합니다. [`tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)에서 [`include`](https://www.typescriptlang.org/tsconfig#include)에 `node_modules/libertygame-types`를 추가해야 합니다.
-
-그리고 `extends`에 [`libertygame-types/recommended.json`](recommended.json)을 추가할 것을 권장합니다. 이는 tsconfig를 미디어위키와 리버티게임의 환경에 맞추고 아래 필수 셋팅을 자동으로 해줍니다.
+`extends`에 [`libertygame-types/recommended.json`](recommended.json)을 추가할 것을 권장합니다. 이는 tsconfig를 미디어위키와 리버티게임의 환경에 맞추고 아래 필수 셋팅을 자동으로 해줍니다.
 
 ```json
 {
-	"extends": "@libertygame/types/recommended.json",
-	"include": ["node_modules/@libertygame/types"]
+	"extends": "@libertygame/types/recommended.json"
 }
 ```
 
-recommended.json을 사용하는 대신 tsconfig를 수동으로 설정할 경우, 적어도 `compilerOptions`의 [`moduleResolution`](https://www.typescriptlang.org/tsconfig#moduleResolution) 옵션은 `Node` 계열로 설정해야 합니다. 만약 [`module`](https://www.typescriptlang.org/tsconfig#module)이 `CommonJS`나 `Node` 계열로 설정되어있다면 생략하셔도 좋습니다.
+이 패키지는 `@types/`에 속한 패키지가 아니므로 설치만으로 자동으로 추가되지 않습니다. 앞서 설명한 recommend.json을 사용한 경우 함께 추가해주므로 별도의 설정이 필요하지 않지만, tsconfig를 수동으로 설정하거나 include와 files를 모두 재정의한 경우에는 별도로 추가해 주셔야 합니다. [`tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)에서 [`include`](https://www.typescriptlang.org/tsconfig#include)에 `node_modules/@libertygame/types`를 추가하거나, [`files`](https://www.typescriptlang.org/tsconfig#files)에 `node_modules/@libertygame/types/index.d.ts`를 추가하면 됩니다.
+
+```json
+{
+	"include": ["node_modules/@libertygame/types"],
+	"files": ["node_modules/@libertygame/types/index.d.ts"]
+}
+```
+
+recommended.json을 사용하지 않고 수동으로 설정한다면, `compilerOptions`의 [`moduleResolution`](https://www.typescriptlang.org/tsconfig#moduleResolution) 옵션은 반드시 `Node` 계열로 설정해야 합니다. 만약 [`module`](https://www.typescriptlang.org/tsconfig#module)이 `CommonJS`나 `Node` 계열로 설정되어있다면 생략하셔도 좋습니다.
 
 ```json
 {
 	"compilerOptions": {
 		"moduleResoultion": "node"
-	},
-	"include": ["node_modules/@libertygame/types"]
+	}
 }
 ```
 
