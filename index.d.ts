@@ -1,4 +1,4 @@
 /// <reference types="types-mediawiki" />
 
-/// <reference path="MediaWiki/Common.d.ts" />
-/// <reference path="MediaWiki/Gadgets-definition.d.ts" />
+/// <reference path="types/MediaWiki/Common.d.ts" />
+/// <reference path="types/MediaWiki/Gadgets-definition.d.ts" />
