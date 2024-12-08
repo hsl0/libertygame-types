@@ -8,13 +8,8 @@
 		"forceConsistentCasingInFileNames": true,
 		"noEmit": true,
 		"module": "CommonJS",
-		"lib": [
-			"DOM",
-			"ESNext"
-		],
+		"lib": ["DOM", "ESNext"],
 		"composite": true
 	},
-	"files": [
-		"index.d.ts"
-	]
+	"files": ["index.d.ts"]
 }
