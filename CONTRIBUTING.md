@@ -4,9 +4,26 @@
 
 이 패키지의 파일은 리버티게임의 실제 문서와 일대일로 대응됩니다.
 타입은 `types`에 저장됩니다. types의 1단계 하위 폴더는 이름공간을 의미합니다. 이름공간 폴더 이름은 영어를 사용합니다.
-그리고 그 아래에는 이름공간에 속한 각 문서가 포함되며, 하위 문서는 또 다시 폴더 안으로 들어갑니다.
+그리고 그 아래에는 이름공간에 속한 각 문서가 포함되며, 하위 문서는 또 다시 폴더 안으로 들어갑니다. 기본 이름공간은 `main` 폴더를 사용합니다.
 모든 타입 정의 파일은 `.d.ts` 확장자를 가지며, `.js`로 끝나는 문서들은 `.js` 부분은 생략되고 `.d.ts`로 대체됩니다.
 예를 들어, `MediaWiki:Foo/bar.js` 문서에 대한 타입 파일의 경우, 이 패키지에서는 `MediaWiki/Foo/bar.d.ts` 경로에 저장합니다.
+
+```text
+예시:
+
+types
+  └─main                      = :* (기본 이름공간)
+      ...
+  └─MediaWiki                 = MediaWiki:*
+      Common.d.ts             = MediaWiki:Common.js
+      Gadgets-definition.d.ts = MediaWiki:Gadgets-definition
+      ...
+  └─Project                   = Project:* (리버티게임:)
+      ...
+  └─User                      = User:*
+      ...
+  ...
+```
 
 모든 파일은 [`index.d.ts`](index.d.ts)에 추가되어야 합니다.
 단, `MediaWiki/Gadget-`으로 시작하는 소도구 파일들은 미디어위키에서 소도구를 등록하듯 [`MediaWiki/Gadgets-definition.d.ts`](MediaWiki/Gadgets-definition.d.ts)에 추가합니다.
@@ -15,3 +32,9 @@
 ```ts
 /// <reference path="types/MediaWiki/Common.d.ts" />
 ```
+
+## 버전 및 업데이트
+
+커밋에 타입 정의를 추가, 수정하거나 패키지 사용 방법에 영향을 주는 변동사항이 포함 된 경우, 패키지 관리자는 PR을 병합하기 전에 [`npm version`](https://docs.npmjs.com/cli/commands/npm-version) 명령어를 사용하거나 수동으로 [`package.json`](package.json)의 버전을 수정해야 합니다. 버전은 [SemVer](https://semver.org/lang/ko) 규칙을 따릅니다. 버전을 수정해야 하는 여러 PR을 동시에 병합할 때는 모두 묶어 한 단계만 올려도 됩니다. [`.npmignore`](.npmignore)에 포함된 파일만 수정된 경우에는 이 과정과 다음 과정을 모두 생략합니다.
+
+버전을 수정하는 커밋의 병합이 완료되면 최신 리비전에 버전 태그(태그 이름은 버전이며, 그 앞에 v를 붙입니다. 예: v1.0.0)를 붙이고, 체인지로그를 작성해서 GitHub 릴리즈를 등록해야 합니다. 그 후, npm 배포는 자동으로 이루어집니다.
