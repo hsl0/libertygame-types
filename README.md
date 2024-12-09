@@ -66,3 +66,5 @@ recommended.json을 사용하지 않고 수동으로 설정한다면, `compilerO
 ## 라이선스
 
 라이선스는 아직 확정되지 않아 변경될 수 있습니다. 현재 리버티게임의 라이선스인 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)을 임시로 적용하고 있습니다.
+
+<!-- markdownlint-disable-file MD041 -->
