@@ -1,4 +1,13 @@
+![리버티게임 로고](https://libertyga.me/wiki/Special:Redirect/file/Libertygame_logo.svg)
+
 # 리버티게임 타입스크립트 타입 정의
+
+[![NPM Version](https://img.shields.io/npm/v/%40libertygame%2Ftypes)](https://www.npmjs.com/package/@libertygame/types)
+[![License](https://img.shields.io/npm/l/%40libertygame%2Ftypes)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![Issues](https://img.shields.io/github/issues/LibertygameWikiKorea/libertygame-types)](https://github.com/LibertygameWikiKorea/libertygame-types/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/LibertygameWikiKorea/libertygame-types)](https://github.com/LibertygameWikiKorea/libertygame-types/pulls)
+[![Node.js CI](https://github.com/LibertygameWikiKorea/libertygame-types/actions/workflows/node.js.yml/badge.svg)](https://github.com/LibertygameWikiKorea/libertygame-types/actions/workflows/node.js.yml)
+[![npm publish](https://github.com/LibertygameWikiKorea/libertygame-types/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/LibertygameWikiKorea/libertygame-types/actions/workflows/npm-publish.yml)
 
 [리버티게임](https://libertyga.me)에서 사용하는 스크립트를 타입스크립트로도 개발할 수 있도록 전역 함수 및 변수나 소도구의 타입 정의를 배포합니다.
 
@@ -56,4 +65,4 @@ recommended.json을 사용하지 않고 수동으로 설정한다면, `compilerO
 
 ## 라이선스
 
-라이선스는 아직 확정되지 않아 변경될 수 있습니다. 현재 리버티게임의 라이선스인 CC BY-NC-SA 4.0을 임시로 적용하고 있습니다.
+라이선스는 아직 확정되지 않아 변경될 수 있습니다. 현재 리버티게임의 라이선스인 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)을 임시로 적용하고 있습니다.
