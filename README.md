@@ -5,10 +5,8 @@
 [![NPM Version](https://img.shields.io/npm/v/%40libertygame%2Ftypes)](https://www.npmjs.com/package/@libertygame/types)
 [![License](https://img.shields.io/npm/l/%40libertygame%2Ftypes)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![Last update](https://img.shields.io/npm/last-update/%40libertygame%2Ftypes)](https://www.npmjs.com/package/@libertygame/types)
-[![Issues](https://img.shields.io/github/issues/LibertygameWikiKorea/libertygame-types)](https://github.com/LibertygameWikiKorea/libertygame-types/issues)
-[![Pull Requests](https://img.shields.io/github/issues-pr/LibertygameWikiKorea/libertygame-types)](https://github.com/LibertygameWikiKorea/libertygame-types/pulls)
-[![Node.js CI](https://github.com/LibertygameWikiKorea/libertygame-types/actions/workflows/node.js.yml/badge.svg)](https://github.com/LibertygameWikiKorea/libertygame-types/actions/workflows/node.js.yml)
-[![npm publish](https://github.com/LibertygameWikiKorea/libertygame-types/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/LibertygameWikiKorea/libertygame-types/actions/workflows/npm-publish.yml)
+[![Issues](https://img.shields.io/github/issues/LibertygameWikiKorea/libertygame-types?logo=github)](https://github.com/LibertygameWikiKorea/libertygame-types/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/LibertygameWikiKorea/libertygame-types?logo=github)](https://github.com/LibertygameWikiKorea/libertygame-types/pulls)
 
 [리버티게임](https://libertyga.me)에서 사용하는 스크립트를 타입스크립트로도 개발할 수 있도록 전역 함수 및 변수나 소도구의 타입 정의를 배포합니다.
 
