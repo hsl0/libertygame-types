@@ -10,7 +10,7 @@ updates:
     schedule:
       interval: 'weekly'
     include:
-      - dependency-type: 'production
+      - dependency-type: 'production'
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
