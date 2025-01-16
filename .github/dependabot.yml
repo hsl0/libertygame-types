@@ -9,8 +9,13 @@ updates:
     directory: '/' # Location of package manifests
     schedule:
       interval: 'weekly'
-    versioning-strategy: 'increase-if-necessary'
-    ignore:
+    include:
+      - dependency-type: 'production
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'monthly'
+    include:
       - dependency-type: 'development'
-        versions: ['minor', 'patch']
-        
+    ignore:
+      - versions: ['minor', 'patch']
