@@ -35,7 +35,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Preparing
+      - name: Preparing git workspace
+        run: |
+          git config --global user.name "$USER_NAME"
+          git config --global user.email "$USER_EMAIL"
+        env:
+          USER_NAME: ${{ github.actor }}
+          USER_EMAIL: ${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com
+      - name: Preparing package
         run: npm ci
       - name: Bumping npm version
         run: npm version $VERSION_TYPE -m "$COMMIT_MSG"
