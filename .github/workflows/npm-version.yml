@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/workflows/node.js.yml
-  
+
   bump-version:
     needs: test
     runs-on: ubuntu-latest
