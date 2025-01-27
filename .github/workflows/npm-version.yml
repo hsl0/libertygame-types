@@ -24,7 +24,7 @@ jobs:
   test:
     uses: ./.github/workflows/node.js.yml
 
-  bump-version:
+  bump:
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -55,9 +55,11 @@ jobs:
           git push
           git push --tags
 
-  pull-request:
+  pr:
     if: ${{ github.event.repository.default_branch != github.ref }}
-    needs: bump-version
+    needs: bump
     runs-on: ubuntu-latest
     steps:
       - run: gh pr create --head ${{ github.ref }} --fill
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
