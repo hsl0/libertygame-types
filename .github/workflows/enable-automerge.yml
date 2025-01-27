@@ -1,5 +1,6 @@
 # https://stackoverflow.com/questions/69112842/how-can-i-allow-github-automerge-to-perform-the-merge-without-explicitly-enablin
 # 코드 리뷰를 완료하면 자동으로 Merge됨
+name: Auto enable auto merge
 
 on:
   pull_request:
