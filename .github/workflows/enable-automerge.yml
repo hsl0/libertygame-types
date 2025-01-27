@@ -10,6 +10,8 @@ jobs:
   enable-automerge:
     name: Auto enable auto merge
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - run: gh pr merge --auto --merge "$PR_URL"
         env:
