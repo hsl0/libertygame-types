@@ -60,6 +60,7 @@ jobs:
     needs: bump
     runs-on: ubuntu-latest
     steps:
-      - run: gh pr create --head ${{ github.ref }} --fill
+      - uses: actions/checkout@v4
+      - run: gh pr create --fill
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
