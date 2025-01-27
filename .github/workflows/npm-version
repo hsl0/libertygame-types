@@ -1,0 +1,53 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Bump NPM version
+
+on:
+  workflow_dispatch:
+    inputs:
+      versionType:
+        description: 'Version Type'
+        type: choice
+        required: true
+        default: 'minor'
+        options:
+          - major
+          - minor
+          - patch
+      commitMessage:
+        description: 'Commit Message'
+        required: false
+        default: 'Release version %s'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm test
+  
+  bump-version:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 'dev'
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Preparing
+        run: npm ci
+      - name: Bumping npm version
+        run: npm version $VERSION_TYPE -m "$COMMIT_MSG"
+        env:
+          VERSION_TYPE: ${{ inputs.versionType }}
+          COMMIT_MSG: ${{ inputs.commitMessage }}
+      - name: Push to GitHub
+        run: git push
