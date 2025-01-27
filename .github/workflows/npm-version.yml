@@ -30,11 +30,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 'dev'
           token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - name: Preparing git workspace
         run: |
           git config --global user.name "$USER_NAME"
@@ -50,4 +49,4 @@ jobs:
           VERSION_TYPE: ${{ inputs.versionType }}
           COMMIT_MSG: ${{ inputs.commitMessage }}
       - name: Push to GitHub
-        run: git push
+        run: git push --tags
