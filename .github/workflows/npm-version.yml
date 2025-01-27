@@ -49,4 +49,6 @@ jobs:
           VERSION_TYPE: ${{ inputs.versionType }}
           COMMIT_MSG: ${{ inputs.commitMessage }}
       - name: Push to GitHub
-        run: git push --tags
+        run: |
+          git push
+          git push --tags
