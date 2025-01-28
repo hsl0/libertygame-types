@@ -39,8 +39,8 @@ jobs:
           git config --global user.name "$USER_NAME"
           git config --global user.email "$USER_EMAIL"
         env:
-          USER_NAME: GitHub Actions
-          USER_EMAIL: github-actions@users.noreply.github.com
+          USER_NAME: gitHub-actions[bot]
+          USER_EMAIL: github-actions[bot]@users.noreply.github.com
       - name: Preparing package
         run: |
           npm ci
