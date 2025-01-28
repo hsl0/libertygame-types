@@ -1,6 +1,6 @@
 {
 	"name": "@libertygame/types",
-	"version": "0.6.0",
+	"version": "0.7.0",
 	"description": "리버티게임(libertyga.me) 스크립트 타입 정의",
 	"types": "index.d.ts",
 	"scripts": {
