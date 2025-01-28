@@ -14,6 +14,7 @@ jobs:
         with:
           fetch-depth: 0
           fetch-tags: true
+      - run: git pull
       - run: |
           TAG=$(git tag --points-at $GITHUB_SHA)
           echo "$TAG"
