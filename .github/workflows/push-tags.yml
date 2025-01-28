@@ -1,0 +1,35 @@
+name: Push new version to main branch
+
+on:
+  push:
+    branches-ignore:
+      - main
+    tags:
+      - v*
+
+jobs:
+  pr:
+    name: Pull request to main branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: gh pr create --fill-verbose
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  merge:
+    name: Merge to main branch
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - run: git fetch
+      - run: git merge $REF
+        env:
+          REF: origin/${{ github.ref_name }}
+      - run: git push
