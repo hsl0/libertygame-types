@@ -1,0 +1,111 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Release new version
+
+on:
+  workflow_dispatch:
+    inputs:
+      versionType:
+        description: 'Version Type'
+        type: choice
+        required: false
+        default: 'minor'
+        options:
+          - major
+          - minor
+          - patch
+      customVersion:
+        description: 'Custom Version'
+        required: false
+      commitMessage:
+        description: 'Commit Message'
+        required: false
+        default: 'Release version %s'
+      commitBy:
+        description: 'Commit By'
+        type: choice
+        required: true
+        default: github-actions[bot]
+        options:
+          - me
+          - github-actions[bot]
+
+jobs:
+  test:
+    name: Testing package
+    uses: ./.github/workflows/node.js.yml
+
+  bump:
+    name: Bump package version and create git tag
+    needs: test
+    runs-on: ubuntu-latest
+    outputs:
+      npmVersion: ${{ steps.npmVersion.outputs.npmVersion }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Preparing git repositry
+        run: |
+          git config --global user.name "$USER_NAME"
+          git config --global user.email "$USER_EMAIL"
+        env:
+          USER_NAME: ${{ inputs.commitBy == 'me' && github.actor_id || inputs.commitBy }}
+          USER_EMAIL: ${{ inputs.commitBy == 'github-actions[bot]' && 'github-actions[bot]@users.noreply.github.com' || format('{0}+{1}@users.noreply.github.com', github.actor_id, github.actor) }}
+      - name: Preparing package
+        run: |
+          npm ci
+          npm audit
+      - name: Bump package version
+        id: npmVersion
+        run: |
+          NPM_PACKAGE_VERSION=$(npm version $VERSION_TYPE -m "$COMMIT_MSG")
+          echo "$NPM_PACKAGE_VERSION"
+          echo "npmVersion=${NPM_PACKAGE_VERSION}" >> "$GITHUB_OUTPUT"
+        env:
+          VERSION_TYPE: ${{ inputs.customVersion || inputs.versionType }}
+          COMMIT_MSG: ${{ inputs.commitMessage }}
+      - name: Push to GitHub
+        run: |
+          git push
+          git push --tags
+
+  merge:
+    name: Merge to main branch
+    if: ${{ github.event.repository.default_branch != github.ref_name  }}
+    needs: bump
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - run: git fetch
+      - run: git merge $REF
+        env:
+          REF: origin/${{ github.ref_name }}
+      - run: git push
+
+  release:
+    name: Create release
+    needs: bump
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+      - run: gh release create $TAG --generate-notes
+        env:
+          TAG: ${{ needs.bump.outputs.npmVersion }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish:
+    name: Publish to NPM registry
+    needs: [bump, merge]
+    if: ${{ !failure() }}
+    uses: ./.github/workflows/npm-publish.yml
+    with:
+      skipTest: true
