@@ -60,6 +60,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - run: git pull
       - run: git status
       - run: git log HEAD~1..HEAD
       - run: git log $ORIGIN_MAIN~1..$ORIGIN_MAIN
