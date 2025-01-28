@@ -68,6 +68,6 @@ jobs:
       - run: git log $ORIGIN_MAIN...HEAD
         env:
           ORIGIN_MAIN: origin/${{ github.event.repository.default_branch }}
-      - run: gh pr create --head HEAD --fill-verbose
+      - run: gh pr create --fill-verbose
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
