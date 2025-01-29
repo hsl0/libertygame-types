@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Release new version
+name: Bump NPM package version
 
 on:
   workflow_dispatch:
@@ -47,7 +47,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Preparing git repositry
+      - name: Preparing git
         run: |
           git config --global user.name "$USER_NAME"
           git config --global user.email "$USER_EMAIL"
@@ -73,39 +73,6 @@ jobs:
           git push --tags
 
   merge:
-    name: Merge to main branch
-    if: ${{ github.event.repository.default_branch != github.ref_name  }}
+    name: Merge tag to main branch
     needs: bump
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.repository.default_branch }}
-          fetch-depth: 0
-      - run: git fetch
-      - run: git merge $REF
-        env:
-          REF: origin/${{ github.ref_name }}
-      - run: git push
-
-  release:
-    name: Create release
-    needs: bump
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          fetch-tags: true
-      - run: gh release create $TAG --generate-notes
-        env:
-          TAG: ${{ needs.bump.outputs.npmVersion }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  publish:
-    name: Publish to NPM registry
-    needs: [bump, merge]
-    if: ${{ !failure() }}
-    uses: ./.github/workflows/npm-publish.yml
-    with:
-      skipTest: true
+    uses: ./.github/workflows/tag-to-main.yml

@@ -1,0 +1,20 @@
+name: Remove unused tag
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+jobs:
+  removeTag:
+    name: Remove unused tag
+    if: ${{ !github.event.pull_request.merged }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          TAG=$(git tag --points-at $GITHUB_SHA)
+          echo "$TAG"
+      - run: git push --delete origin $TAG
