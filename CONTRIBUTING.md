@@ -32,9 +32,3 @@ types
 ```ts
 /// <reference path="types/MediaWiki/Common.d.ts" />
 ```
-
-## 버전 및 업데이트
-
-커밋에 타입 정의를 추가, 수정하거나 패키지 사용 방법에 영향을 주는 변동사항이 포함 된 경우, 패키지 관리자는 PR을 병합하기 전에 [`npm version`](https://docs.npmjs.com/cli/commands/npm-version) 명령어를 사용하거나 수동으로 [`package.json`](package.json)의 버전을 수정해야 합니다. 버전은 [SemVer](https://semver.org/lang/ko) 규칙을 따릅니다. 버전을 수정해야 하는 여러 PR을 동시에 병합할 때는 모두 묶어 한 단계만 올려도 됩니다. [`.npmignore`](.npmignore)에 포함된 파일만 수정된 경우에는 이 과정과 다음 과정을 모두 생략합니다.
-
-버전을 수정하는 커밋의 병합이 완료되면 최신 리비전에 버전 태그(태그 이름은 버전이며, 그 앞에 v를 붙입니다. 예: v1.0.0)를 붙이고, 체인지로그를 작성해서 GitHub 릴리즈를 등록해야 합니다. 그 후, npm 배포는 자동으로 이루어집니다.
