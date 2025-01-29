@@ -79,5 +79,5 @@ jobs:
     needs: bump
     uses: ./.github/workflows/tag-to-main.yml
     with:
-      ref: v${{ needs.bump.outputs.npmVersion }}
+      ref: ${{ needs.bump.outputs.npmVersion }}
       skipTest: true
