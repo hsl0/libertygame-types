@@ -41,6 +41,7 @@ jobs:
   publish:
     name: Publish package
     needs: release
+    if: ${{ !failure() }}
     uses: './.github/workflows/npm-publish.yml'
     with:
       skipTest: true
