@@ -1,5 +1,7 @@
 name: Push new version to main branch
 
+run-name: Push ${{ inputs.ref || github.ref_name }} to ${{ github.event.repository.default_branch }} branch
+
 on:
   push:
     tags:
@@ -10,8 +12,19 @@ on:
         description: 'Ref to push to main branch'
         type: string
         required: false
+      skipTest:
+        description: 'Skip test job (only if done before)'
+        type: boolean
+        default: false
+        required: false
 
 jobs:
+  test:
+    # Don't use with PR
+    name: Testing package
+    if: ${{ !inputs.skipTest }}
+    uses: ./.github/workflows/node.js.yml
+
   pr:
     name: Pull request to main branch
     if: false
@@ -27,6 +40,8 @@ jobs:
 
   merge:
     name: Merge to main branch
+    needs: test
+    if: ${{ !failure() }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

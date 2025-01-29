@@ -3,11 +3,12 @@
 
 name: Publish NPM package
 
+run-name: Publish ${{ github.event.release.name }}
+
 on:
   release:
     types:
       - published
-  workflow_dispatch:
 
 jobs:
   test:
