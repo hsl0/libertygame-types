@@ -71,3 +71,8 @@ jobs:
         run: |
           git push
           git push --tags
+
+  merge:
+    name: Merge tag to main branch
+    needs: bump
+    uses: ./.github/workflows/tag-to-main.yml
