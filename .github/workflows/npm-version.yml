@@ -43,12 +43,12 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     outputs:
-      npmVersion: ${{ steps.npmVersion.outputs.npmVersion }}
+      version: ${{ steps.version.outputs.version }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: lts
       - name: Preparing git
         run: |
           git config --global user.name "$USER_NAME"
@@ -61,11 +61,11 @@ jobs:
           npm ci
           npm audit
       - name: Bump package version
-        id: npmVersion
+        id: version
         run: |
           NPM_PACKAGE_VERSION=$(npm version $VERSION_TYPE -m "$COMMIT_MSG")
           echo "$NPM_PACKAGE_VERSION"
-          echo "npmVersion=${NPM_PACKAGE_VERSION}" >> "$GITHUB_OUTPUT"
+          echo "version=${NPM_PACKAGE_VERSION}" >> "$GITHUB_OUTPUT"
         env:
           VERSION_TYPE: ${{ inputs.customVersion || inputs.versionType }}
           COMMIT_MSG: ${{ inputs.commitMessage }}
@@ -74,10 +74,10 @@ jobs:
           git push
           git push --tags
 
-  merge:
-    name: Merge tag to main branch
+  release:
+    name: Create release
     needs: bump
-    uses: ./.github/workflows/tag-to-main.yml
+    uses: './.github/workflows/release-tag.yml'
     with:
-      ref: ${{ needs.bump.outputs.npmVersion }}
+      tag: ${{ needs.bump.outputs.version }}
       skipTest: true
