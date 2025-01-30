@@ -84,12 +84,12 @@ jobs:
           VERSION_TYPE: ${{ inputs.customVersion || inputs.versionType }}
           COMMIT_MSG: ${{ inputs.commitMessage }}
       - name: Push commit
-        run: git push -u origin release
+        run: git push --force
       - name: Create Pull Request
         run: gh pr create --fill-verbose
       - name: Merge Pull Request
         if: ${{ inputs.autoMerge }}
-        run: gh pr merge --rebase --delete-branch --auto
+        run: gh pr merge --rebase --delete-branch --admin
       - name: Push tag
         if: ${{ inputs.createTag }}
         run: git push --tags
