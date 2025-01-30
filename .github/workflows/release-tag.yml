@@ -10,6 +10,10 @@ on:
         description: 'Tag to release'
         type: string
         required: false
+      draft:
+        description: 'Save as draft'
+        type: boolean
+        default: false
       skipTest:
         description: 'Skip test job (only if done before)'
         type: boolean
@@ -33,7 +37,7 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
       - run: git fetch --tags
-      - run: gh release create $TAG --generate-notes
+      - run: gh release create $TAG --generate-notes ${{ inputs.draft && '--draft' }}
         env:
           TAG: ${{ inputs.tag || github.ref_name }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
