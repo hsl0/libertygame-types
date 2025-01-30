@@ -37,7 +37,7 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
       - run: git fetch --tags
-      - run: gh release create $TAG --generate-notes ${{ inputs.draft && '--draft' }}
+      - run: gh release create $TAG --generate-notes ${{ (github.event_name == 'push' || inputs.draft) && '--draft' }}
         env:
           TAG: ${{ inputs.tag || github.ref_name }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
