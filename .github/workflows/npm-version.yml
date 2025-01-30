@@ -63,17 +63,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-      - name: Preparing git
+      - name: Create release branch
+        run: git checkout -b release
+      - name: Preparing git profile
         run: |
           git config --global user.name "$USER_NAME"
           git config --global user.email "$USER_EMAIL"
         env:
           USER_NAME: ${{ inputs.commitBy == 'me' && github.actor_id || inputs.commitBy }}
           USER_EMAIL: ${{ inputs.commitBy == 'github-actions[bot]' && 'github-actions[bot]@users.noreply.github.com' || format('{0}+{1}@users.noreply.github.com', github.actor_id, github.actor) }}
-      - name: Preparing package
-        run: |
-          npm ci
-          npm audit
+      - name: Auditing package
+        run: npm audit
       - name: Bump package version
         id: version
         run: |
