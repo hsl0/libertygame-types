@@ -108,7 +108,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_PAT }}
       - name: Push tag
         if: ${{ inputs.createTag }}
-        run: git push --tags
+        run: git push --tags --force
 
   release:
     name: Create release
