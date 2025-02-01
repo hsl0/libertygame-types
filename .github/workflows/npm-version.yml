@@ -120,7 +120,7 @@ jobs:
         if: ${{ inputs.autoMerge }}
         run: gh pr merge --rebase --auto --delete-branch --match-head-commit ${{ needs.bump.outputs.commitSHA }}
       - name: Dispatch test workflow
-        run: gh workflow run node.js.yml --ref ${{ needs.bump.outputs.commitSHA }}
+        run: gh workflow run node.js.yml --ref release
 
   release:
     name: Create release
