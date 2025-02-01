@@ -118,7 +118,7 @@ jobs:
           ref: release
       - name: Activate auto-merge
         if: ${{ inputs.autoMerge }}
-        run: gh pr merge --rebase --delete-branch --admin --match-head-commit ${{ needs.bump.outputs.commitSHA }}
+        run: gh pr merge --rebase --auto --delete-branch --admin --match-head-commit ${{ needs.bump.outputs.commitSHA }}
       - name: Dispatch test workflow
         run: gh workflow run node.js.yml --ref ${{ needs.bump.outputs.commitSHA }}
 
