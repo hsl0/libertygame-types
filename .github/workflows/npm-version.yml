@@ -50,6 +50,15 @@ jobs:
     name: Testing package
     uses: ./.github/workflows/node.js.yml
 
+  audit:
+    name: Auditing package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm ci
+      - run: npm audit
+
   bump:
     name: Bump package version and create git tag
     needs: test
@@ -72,8 +81,6 @@ jobs:
         env:
           USER_NAME: ${{ inputs.commitBy == 'me' && github.actor_id || inputs.commitBy }}
           USER_EMAIL: ${{ inputs.commitBy == 'github-actions[bot]' && 'github-actions[bot]@users.noreply.github.com' || format('{0}+{1}@users.noreply.github.com', github.actor_id, github.actor) }}
-      - name: Auditing package
-        run: npm audit
       - name: Bump package version
         id: version
         run: |
@@ -93,6 +100,10 @@ jobs:
       - name: Push tag
         if: ${{ inputs.createTag }}
         run: git push --tags
+
+  test-PR:
+    name: Test Pull Request
+    uses: ./.github/workflows/node.js.yml
 
   release:
     name: Create release
