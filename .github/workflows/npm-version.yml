@@ -114,6 +114,8 @@ jobs:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: release
       - name: Activate auto-merge
         if: ${{ inputs.autoMerge }}
         run: gh pr merge --rebase --delete-branch --admin --match-head-commit ${{ needs.bump.outputs.commitSHA }}
