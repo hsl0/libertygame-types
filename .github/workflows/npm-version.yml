@@ -117,7 +117,7 @@ jobs:
 
   release:
     name: Create release
-    needs: bump
+    needs: [bump, merge]
     uses: './.github/workflows/release-tag.yml'
     with:
       tag: ${{ needs.bump.outputs.version }}
