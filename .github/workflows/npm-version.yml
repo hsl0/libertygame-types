@@ -113,8 +113,9 @@ jobs:
   release:
     name: Create release
     needs: bump
+    if: ${{ inputs.createTag }}
     uses: './.github/workflows/release-tag.yml'
     with:
       tag: ${{ needs.bump.outputs.version }}
-      draft: ${{ inputs.createTag && !inputs.autoRelease }}
+      draft: ${{ !inputs.autoRelease }}
       skipTest: true
