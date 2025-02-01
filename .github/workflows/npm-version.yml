@@ -91,12 +91,14 @@ jobs:
         env:
           VERSION_TYPE: ${{ inputs.customVersion || inputs.versionType }}
           COMMIT_MSG: ${{ inputs.commitMessage }}
-      - name: Push commit
-        run: git push origin release -u --force
-      - id: commitSHA
+      - name: Get commit SHA id
+        id: commitSHA
         run: |
           COMMIT_SHA=$(git rev-parse HEAD)
+          echo "$COMMIT_SHA"
           echo "commitSHA=${COMMIT_SHA}" >> $GITHUB_OUTPUT
+      - name: Push commit
+        run: git push origin release -u --force
       - name: Create Pull Request
         run: gh pr create --fill-verbose
       - name: Push tag
@@ -111,6 +113,7 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
+      - uses: actions/checkout@v4
       - name: Activate auto-merge
         if: ${{ inputs.autoMerge }}
         run: gh pr merge --rebase --delete-branch --admin --match-head-commit ${{ needs.bump.outputs.commitSHA }}
