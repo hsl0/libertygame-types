@@ -108,6 +108,8 @@ jobs:
     name: Merge Pull Request
     if: ${{ inputs.autoMerge }}
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Activate auto-merge
         if: ${{ inputs.autoMerge }}
