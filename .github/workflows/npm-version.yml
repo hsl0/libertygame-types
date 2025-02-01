@@ -61,10 +61,11 @@ jobs:
 
   bump:
     name: Bump package version and create git tag
-    needs: test
+    needs: [test, audit]
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.version.outputs.version }}
+      commitSHA: ${{ steps.commitSHA.outputs.commitSHA }}
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -92,18 +93,27 @@ jobs:
           COMMIT_MSG: ${{ inputs.commitMessage }}
       - name: Push commit
         run: git push origin release -u --force
+      - id: commitSHA
+        run: |
+          COMMIT_SHA=$(git rev-parse HEAD)
+          echo "commitSHA=${COMMIT_SHA}" >> $GITHUB_OUTPUT
       - name: Create Pull Request
         run: gh pr create --fill-verbose
-      - name: Merge Pull Request
-        if: ${{ inputs.autoMerge }}
-        run: gh pr merge --rebase --delete-branch --admin
       - name: Push tag
         if: ${{ inputs.createTag }}
         run: git push --tags
 
-  test-PR:
-    name: Test Pull Request
-    uses: ./.github/workflows/node.js.yml
+  merge:
+    needs: bump
+    name: Merge Pull Request
+    if: ${{ inputs.autoMerge }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Activate auto-merge
+        if: ${{ inputs.autoMerge }}
+        run: gh pr merge --rebase --delete-branch --admin --match-head-commit ${{ needs.bump.outputs.commitSHA }}
+      - name: Dispatch test workflow
+        run: gh workflow run node.js.yml --ref ${{ needs.bump.outputs.commitSHA }}
 
   release:
     name: Create release
