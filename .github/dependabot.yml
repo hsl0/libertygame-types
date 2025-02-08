@@ -11,6 +11,6 @@ updates:
       devDependencies:
         applies-to: version-updates
         dependency-type: development
-        update-types: [minor, patch]
     schedule:
-      interval: weekly
+      interval: 'weekly'
+    versioning-strategy: 'increase-if-necessary'
