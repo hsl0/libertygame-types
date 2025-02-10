@@ -105,7 +105,7 @@ jobs:
         if: ${{ inputs.autoMerge }}
         run: gh pr merge --rebase --admin --delete-branch --match-head-commit ${{ steps.commitSHA.outputs.commitSHA }}
         env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Push tag
         if: ${{ inputs.createTag }}
         run: git push --tags
