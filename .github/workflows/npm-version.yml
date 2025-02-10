@@ -101,9 +101,9 @@ jobs:
         run: git push origin release -u --force
       - name: Create Pull Request
         run: gh pr create --fill-verbose
-      - name: Forced merge
+      - name: Auto merge
         if: ${{ inputs.autoMerge }}
-        run: gh pr merge --rebase --admin --delete-branch --match-head-commit ${{ steps.commitSHA.outputs.commitSHA }}
+        run: gh pr merge --rebase --delete-branch --match-head-commit ${{ steps.commitSHA.outputs.commitSHA }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Push tag
