@@ -1,0 +1,51 @@
+name: Create release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_call:
+    inputs:
+      tag:
+        description: 'Tag to release'
+        type: string
+        required: false
+      draft:
+        description: 'Save as draft'
+        type: boolean
+        default: false
+      skipTest:
+        description: 'Skip test job (only if done before)'
+        type: boolean
+        default: false
+        required: false
+
+jobs:
+  test:
+    name: Testing package
+    if: ${{ !inputs.skipTest }}
+    uses: ./.github/workflows/node.js.yml
+
+  release:
+    name: Create release
+    needs: test
+    if: ${{ !failure() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+      - run: git fetch --tags
+      - run: gh release create $TAG --generate-notes ${{ (github.event_name == 'push' || inputs.draft) && '--draft' || '' }}
+        env:
+          TAG: ${{ inputs.tag || github.ref_name }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish:
+    name: Publish package
+    needs: release
+    if: ${{ !failure() && !inputs.draft }}
+    uses: './.github/workflows/npm-publish.yml'
+    with:
+      skipTest: true
