@@ -1,14 +1,11 @@
 {
+	"extends": "./recommended.json",
 	"compilerOptions": {
-		"strict": true,
 		"noImplicitReturns": true,
 		"noImplicitOverride": true,
 		"newLine": "lf",
-		"target": "ES5",
-		"forceConsistentCasingInFileNames": true,
 		"noEmit": true,
 		"module": "CommonJS",
-		"lib": ["DOM", "ESNext"],
 		"composite": true
 	},
 	"files": ["index.d.ts"]
