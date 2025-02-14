@@ -26,9 +26,22 @@ jobs:
     if: ${{ !inputs.skipTest }}
     uses: ./.github/workflows/node.js.yml
 
+  audit:
+    name: Auditing package
+    if: ${{ !inputs.skipTest }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm ci
+      - name: Auditing package
+        run: npm audit
+      - name: Checking outdated dependencies
+        run: npm outdated
+
   release:
     name: Create release
-    needs: test
+    needs: [test, audit]
     if: ${{ !failure() }}
     runs-on: ubuntu-latest
     steps:

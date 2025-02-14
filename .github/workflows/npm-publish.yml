@@ -36,6 +36,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: Auditing package
         run: npm audit
+      - name: Check outdated dependencies
+        run: npm outdated
       - name: Publishing package
         run: npm publish --provenance --access public
         env:
