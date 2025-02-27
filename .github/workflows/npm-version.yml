@@ -45,10 +45,6 @@ on:
         type: boolean
         default: true
 
-permissions:
-  contents: write
-  pull-requests: write
-
 jobs:
   test:
     name: Testing package
@@ -70,6 +66,9 @@ jobs:
     name: Bump package version and create git tag
     needs: [test, audit]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     outputs:
       version: ${{ steps.version.outputs.version }}
       commitSHA: ${{ steps.commitSHA.outputs.commitSHA }}

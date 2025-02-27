@@ -17,10 +17,6 @@ on:
         default: false
         required: false
 
-permissions:
-  contents: read
-  id-token: write
-
 jobs:
   test:
     name: Testing package
@@ -32,6 +28,9 @@ jobs:
     needs: test
     if: ${{ !failure() }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

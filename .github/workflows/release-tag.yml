@@ -20,9 +20,6 @@ on:
         default: false
         required: false
 
-permissions:
-  contents: write
-
 jobs:
   test:
     name: Testing package
@@ -47,6 +44,8 @@ jobs:
     needs: [test, audit]
     if: ${{ !failure() }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
