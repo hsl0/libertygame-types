@@ -2,7 +2,7 @@
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"display": "Libertygame",
 	"compilerOptions": {
-		"target": "ES5",
+		"target": "ES2016",
 		"moduleResolution": "node",
 		"strict": true,
 		"skipLibCheck": true,
